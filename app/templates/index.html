@@ -1,5 +1,22 @@
 {% load django_bootstrap5 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon site Django</title>
+    <!-- Ajout de Bootstrap via django-bootstrap5 -->
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <header>
+        <h1>Bienvenue sur mon site {{name}}</h1>
+    </header>
 
-bonjour {{name}}
+    <main>
+        {% block content %}
+        <!-- Le contenu des autres pages ira ici -->
+        {% endblock %}
+    </main>
+</body>
+</html>

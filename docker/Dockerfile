@@ -1,8 +1,10 @@
 FROM python:3
 
-RUN pip install django mysqlclient
+COPY requirements.txt /requirements.txt
 
-COPY entrypoint /entrypoint
+RUN pip install --no-cache-dir -r /requirements.txt
+
+COPY docker/entrypoint /entrypoint
 
 RUN chmod +x /entrypoint
 

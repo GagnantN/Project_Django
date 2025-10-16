@@ -1,22 +1,30 @@
-{% load django_bootstrap5 %}
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Mon site Django</title>
-    <!-- Ajout de Bootstrap via django-bootstrap5 -->
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-</head>
-<body>
-    <header>
-        <h1>Bienvenue sur mon site {{name}}</h1>
+{% extends 'layouts/base.html' %}
+
+{% block breadcrumb %}
+    {% if data_dict %}
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                {% for link in data_dict.links %}
+                    <li class="breadcrumb-item">
+                        <a href="{{ link.url }}">{{ link.title }}</a>
+                    </li>
+                {% endfor %}
+                <li class="breadcrumb-item active" aria-current="page">{{ data_dict.current }}</li>
+            </ol>
+        </nav>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    <header>        
+        <h1>Bienvenu dans mon site de fantasy</h1>
+        <a href="{% url 'list_photos' %}">Photos de fantasy</a>
     </header>
 
     <main>
-        {% block content %}
-        <!-- Le contenu des autres pages ira ici -->
-        {% endblock %}
+
     </main>
-</body>
-</html>
+
+
+{% endblock %}

@@ -20,9 +20,9 @@ from . import views
 from debug_toolbar.toolbar import debug_toolbar_urls
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', views.index, name='home'),
     path('list/', views.list, name='list_photos'),
+    path('carde/', views.carde, name='carde'),
 
 ] + debug_toolbar_urls()
 

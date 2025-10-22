@@ -1,23 +1,7 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 
-{% block breadcrumb %}
-    {% if data_dict %}
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                {% for link in data_dict.links %}
-                    <li class="breadcrumb-item">
-                        <a href="{{ link.url }}">{{ link.title }}</a>
-                    </li>
-                {% endfor %}
-                <li class="breadcrumb-item active" aria-current="page">{{ data_dict.current }}</li>
-            </ol>
-        </nav>
-    {% endif %}
-{% endblock %}
-
 {% block content %}
-
 <header>        
     <h1>Liste de photos de fantasy</h1>
 </header>
@@ -27,12 +11,16 @@
         {% for image in images %}
             <div class="col">
                 <div class="card h-100 shadow-sm">
-                    <!-- Image de la carte -->
-                    <img src="{% static image %}" class="card-img-top" alt="{{ image }}">
-                    
+
+                                  
                     <!-- Nom de l'image en bas de la carte -->
                     <div class="card-body">
-                        <h5 class="card-title text-center">{{ image }}</h5>
+                        <a href="{% url 'carde' %}?img={{ image }}">
+                            <img src="{% static image %}" class="card-img-top" alt="{{ image }}">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">{{ image }}</h5>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>

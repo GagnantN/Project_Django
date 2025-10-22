@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': environ.get('DB_NAME'),
         'USER': environ.get('DB_USER'),
         'PASSWORD': environ.get('DB_PASSWORD'),

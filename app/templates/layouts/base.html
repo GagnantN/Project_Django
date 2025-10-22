@@ -5,9 +5,23 @@
         <meta charset="UTF-8">
         <title>Mon site Django</title>
         <!-- Ajout de Bootstrap via django-bootstrap5 -->
+        <!-- Le contenu du fil d'ariane ira ici -->
+        
+            {% if data_dict %}
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        {% for link in data_dict.links %}
+                            <li class="breadcrumb-item">
+                                <a href="{{ link.url }}">{{ link.title }}</a>
+                            </li>
+                        {% endfor %}
+                        <li class="breadcrumb-item active" aria-current="page">{{ data_dict.current }}</li>
+                    </ol>
+                </nav>
+            {% endif %}
         {% bootstrap_css %}
         {% bootstrap_javascript %}
-        {% block breadcrumb %}{% endblock %}
+
     </head>
     
     <body>

@@ -1,20 +1,5 @@
 {% extends 'layouts/base.html' %}
 
-{% block breadcrumb %}
-    {% if data_dict %}
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                {% for link in data_dict.links %}
-                    <li class="breadcrumb-item">
-                        <a href="{{ link.url }}">{{ link.title }}</a>
-                    </li>
-                {% endfor %}
-                <li class="breadcrumb-item active" aria-current="page">{{ data_dict.current }}</li>
-            </ol>
-        </nav>
-    {% endif %}
-{% endblock %}
-
 {% block content %}
 
     <header>        

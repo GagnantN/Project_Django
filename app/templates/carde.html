@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<header>        
+    <h1>Carde de : {{ image }}</h1>
+</header>
+
+<main class="container mt-4">
+    {% if image %}
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <!-- Image cliquée -->
+                    <img src="{% static image %}" class="card-img-top" alt="{{ image }}">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ image }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <p>Aucune image sélectionnée.</p>
+    {% endif %}
+</main>
+{% endblock %}
